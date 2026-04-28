@@ -1,0 +1,15 @@
+name: forty-two-watts
+version: "0.1.0"
+slug: forty-two-watts
+description: Unified Home Energy Management System with Lua-driver hardware support
+url: https://github.com/erikarenhill/ha-addon-forty-two-watts
+arch:
+  - amd64
+  - aarch64
+init: false
+boot: auto
+host_network: true
+ports:
+  "8080/tcp": 8080
+ports_description:
+  "8080/tcp": Web UI / API
