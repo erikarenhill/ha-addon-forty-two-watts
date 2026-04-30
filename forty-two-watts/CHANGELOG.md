@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.56.1
+
+- Match upstream `forty-two-watts` v0.56.1.
+
 ## 0.1.0
 
 - Initial community add-on packaging of forty-two-watts.
