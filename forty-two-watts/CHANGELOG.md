@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.56.2
+
+- Match upstream `forty-two-watts` v0.56.2.
+- Add Home Assistant Ingress support so the forty-two-watts web UI appears
+  as "42 Watts" in the HA sidebar.
+
 ## 0.56.1
 
 - Match upstream `forty-two-watts` v0.56.1.

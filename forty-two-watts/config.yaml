@@ -1,5 +1,5 @@
 name: forty-two-watts
-version: "0.56.1"
+version: "0.56.2"
 slug: forty-two-watts
 description: Unified Home Energy Management System with Lua-driver hardware support
 url: https://github.com/erikarenhill/ha-addon-forty-two-watts
@@ -13,3 +13,8 @@ ports:
   "8080/tcp": 8080
 ports_description:
   "8080/tcp": Web UI / API
+ingress: true
+ingress_port: 8080
+panel_icon: mdi:home-lightning-bolt
+panel_title: 42 Watts
+panel_admin: true
