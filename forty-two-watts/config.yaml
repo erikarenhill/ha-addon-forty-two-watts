@@ -13,8 +13,4 @@ ports:
   "8080/tcp": 8080
 ports_description:
   "8080/tcp": Web UI / API
-ingress: true
-ingress_port: 8080
-panel_icon: mdi:home-lightning-bolt
-panel_title: 42 Watts
-panel_admin: true
+webui: http://[HOST]:[PORT:8080]
