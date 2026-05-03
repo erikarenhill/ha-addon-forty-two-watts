@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.64.0
+
+- Match upstream `forty-two-watts` v0.64.0.
+- Includes upstream changes through v0.57.x–v0.64.0: web UI enhancements
+  (energy flow, price charts), hot-reload HA bridge with restart-required
+  dialog, MPC `pv_limit_w` wired into per-driver curtail dispatch, fuse-blow
+  signature via `concurrent_drivers_offline`, plus the v0.62.x bug fixes
+  (negative-spot export revenue, MQTT cache invalidation, MQTT connect
+  shutdown race).
+
 ## 0.56.2.1
 
 - Add an "Open Web UI" button on the add-on dashboard (via `webui:`).
