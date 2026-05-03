@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.66.0
+
+- Match upstream `forty-two-watts` v0.66.0.
+- UI: show signed per-phase current and power on the fuse row.
+
 ## 0.65.0
 
 - Match upstream `forty-two-watts` v0.65.0.
