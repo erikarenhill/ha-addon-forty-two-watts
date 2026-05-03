@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.65.0
+
+- Match upstream `forty-two-watts` v0.65.0.
+- Adds `solaredge_legacy.lua` driver for SolarEdge K-series display
+  inverters.
+
 ## 0.64.0
 
 - Match upstream `forty-two-watts` v0.64.0.
