@@ -1,0 +1,54 @@
+name: Bump to upstream forty-two-watts release
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve latest upstream tag
+        id: upstream
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag=$(gh api repos/frahlg/forty-two-watts/releases/latest --jq .tag_name)
+          [ -n "$tag" ] || { echo "no tag returned"; exit 1; }
+          version="${tag#v}"
+          echo "tag=$tag" >>"$GITHUB_OUTPUT"
+          echo "version=$version" >>"$GITHUB_OUTPUT"
+
+      - name: Read current pinned version
+        id: current
+        run: |
+          current=$(awk -F: '/^FROM ghcr.io\/frahlg\/forty-two-watts:/ {print $NF}' forty-two-watts/Dockerfile)
+          echo "tag=$current" >>"$GITHUB_OUTPUT"
+
+      - name: Bump if changed
+        if: steps.upstream.outputs.tag != steps.current.outputs.tag
+        env:
+          NEW_TAG: ${{ steps.upstream.outputs.tag }}
+          NEW_VERSION: ${{ steps.upstream.outputs.version }}
+        run: |
+          set -euo pipefail
+          sed -i "s|^FROM ghcr.io/frahlg/forty-two-watts:.*|FROM ghcr.io/frahlg/forty-two-watts:${NEW_TAG}|" forty-two-watts/Dockerfile
+          sed -i "s|^version: \".*\"|version: \"${NEW_VERSION}\"|" forty-two-watts/config.yaml
+          tmp=$(mktemp)
+          {
+            printf '# Changelog\n\n## %s\n\n- Match upstream `forty-two-watts` %s.\n' "$NEW_VERSION" "$NEW_TAG"
+            tail -n +2 forty-two-watts/CHANGELOG.md
+          } >"$tmp"
+          mv "$tmp" forty-two-watts/CHANGELOG.md
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add forty-two-watts/Dockerfile forty-two-watts/config.yaml forty-two-watts/CHANGELOG.md
+          git commit -m "Bump addon to ${NEW_VERSION} to match upstream image"
+          git push origin HEAD:main
