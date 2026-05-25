@@ -1,5 +1,5 @@
 name: forty-two-watts
-version: "0.80.4"
+version: "0.81.2"
 slug: forty-two-watts
 description: Unified Home Energy Management System with Lua-driver hardware support
 url: https://github.com/erikarenhill/ha-addon-forty-two-watts
