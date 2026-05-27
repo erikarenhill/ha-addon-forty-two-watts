@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.102.3
+
+- Match upstream `forty-two-watts` v0.102.3.
+
 ## 0.90.1
 
 - Match upstream `forty-two-watts` v0.90.1.
