@@ -2,7 +2,7 @@
 # volume instead of the image-native /app/data. Supervisor builds this
 # locally on each install; no addon-side CI required.
 
-FROM ghcr.io/frahlg/forty-two-watts:v1.10.5
+FROM ghcr.io/frahlg/forty-two-watts:v1.13.4
 
 USER root
 WORKDIR /data
