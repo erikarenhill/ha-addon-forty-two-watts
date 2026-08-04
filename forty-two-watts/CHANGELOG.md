@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.15.0
+
+- Match upstream `forty-two-watts` v1.15.0.
+
 ## 1.14.0
 
 - Match upstream `forty-two-watts` v1.14.0.
