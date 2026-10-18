@@ -1,5 +1,9 @@
 # Changelog
 
+## drivers-stable
+
+- Match upstream `forty-two-watts` drivers-stable.
+
 ## 2.3.2
 
 - Match upstream `forty-two-watts` v2.3.2.
